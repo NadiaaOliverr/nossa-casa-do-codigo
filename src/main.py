@@ -1,0 +1,1 @@
+print("Setup is ok")
