@@ -11,7 +11,7 @@
 - Navegue até a branch `setup`: `git checkout setup`
 - Crie o ambiente virtual
   `python -m venv .venv`
-- Ative o ambiente virtal
+- Ative o ambiente virtual
   `source .venv/bin/activate`
 - Instale as dependências
   `pip install -r requirements.txt`
