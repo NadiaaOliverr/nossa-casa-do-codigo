@@ -1,6 +1,6 @@
 ### Nossa Casa do Código :books:
 
-#### Dependências
+#### Requisitos iniciais
 
 - [Python3](https://www.python.org/downloads/)
 - Gerenciador de pacotes do python(**PIP**)
