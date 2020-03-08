@@ -31,6 +31,11 @@ Para testar este setup, entre na **pasta src** e execute o arquivo `main.py` com
 - Lembre-se de atualizar as dependências necessárias: `pip install -r requirements.txt`
 - Caso esteja utilizando o pycharm é simples, basta instalar as bibliotecas que ele mostrar que estão ausentes e clicar em run
 - Caso esteja utilizando o terminal, terá que fazer o seguinte:
+
   - **Ative o ambiente virtual**: `source .venv/bin/activate`
   - Para compilar a main dos autores, na pasta raiz do projeto digite: `python3 -m src.authors.main`
+
+  - **Resultado Esperado**
+    ![resultado_esperado](https://user-images.githubusercontent.com/41811634/76156242-5abfab80-60d6-11ea-80de-d15693c7a779.png)
+
   - Para compilar os testes, também na pasta raiz, digite: `python3 -m pytest`
