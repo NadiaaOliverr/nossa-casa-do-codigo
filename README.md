@@ -25,3 +25,12 @@ Para testar este setup, entre na **pasta src** e execute o arquivo `main.py` com
 
 **Obs:** para sair do ambiente virtual basta digitar:
 `deactivate`
+
+#### Executando o código
+
+- Lembre-se de atualizar as dependências necessárias: `pip install -r requirements.txt`
+- Caso esteja utilizando o pycharm é simples, basta instalar as bibliotecas que ele mostrar que estão ausentes e clicar em run
+- Caso esteja utilizando o terminal, terá que fazer o seguinte:
+  - **Ative o ambiente virtual**: `source .venv/bin/activate`
+  - Para compilar a main dos autores, na pasta src: `python3 main.py`
+  - Para compilar os testes terá abrir o terminal na pasta raiz deste projeto e digitar: `python3 -m pytest`
