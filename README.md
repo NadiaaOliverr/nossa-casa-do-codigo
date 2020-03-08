@@ -32,5 +32,5 @@ Para testar este setup, entre na **pasta src** e execute o arquivo `main.py` com
 - Caso esteja utilizando o pycharm é simples, basta instalar as bibliotecas que ele mostrar que estão ausentes e clicar em run
 - Caso esteja utilizando o terminal, terá que fazer o seguinte:
   - **Ative o ambiente virtual**: `source .venv/bin/activate`
-  - Para compilar a main dos autores, na pasta src: `python3 main.py`
-  - Para compilar os testes terá abrir o terminal na pasta raiz deste projeto e digitar: `python3 -m pytest`
+  - Para compilar a main dos autores, na pasta raiz do projeto digite: `python3 -m src.authors.main`
+  - Para compilar os testes, também na pasta raiz, digite: `python3 -m pytest`
