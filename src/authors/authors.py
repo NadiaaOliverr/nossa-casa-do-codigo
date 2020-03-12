@@ -1,81 +1,56 @@
-from src.authors.excecoes import NameRequired, DescriptionRequired, DescriptionFull, EmailValid, TimeRegistrationNull
-
 from validate_email import validate_email
-from prettytable import PrettyTable
-import os
+from datetime import datetime
+
 
 class Author:
 
-    _authors = {}
+    def __init__(self, name='', email='', description=''):
+        self._set_author(name, email, description)
 
-    def __init__(self):
-        pass
-
-    def set_author(self, name, email, description, time_registration):
-        if (self._name_field_validation(name)):
+    def _set_author(self, name, email, description):
+        if self._fields_validation(name, email, description):
             self._name = name
-        if (self._email_field_validation(email)):
             self._email = email
-        if (self._description_field_validation(description)):
             self._description = description
-        if(self._time_registration_validation(time_registration)):
-            self._time_registration = time_registration
+        self._time_registration = datetime.now().strftime("%d/%m/%Y às %H:%M:%S.%f - BRT")
 
-        self._registration_author(self._name, self._email, self._description, self._time_registration)
+    def _fields_validation(self, name, email, description):
+        self._fields_empty(name, email, description)
+        self._description_is_full(description)
+        self._email_field_validation(email)
+        return True
 
-    def _time_registration_validation(self, time_registration):
-        time_registration_is_null = time_registration == None
-        if(time_registration_is_null):
-            raise TimeRegistrationNull('O instante de cadastro não pode ser nulo')
-        else:
-            return True
-
-    def _name_field_validation(self, name):
+    def _fields_empty(self, name, email, description):
         name_is_empty = len(name) == 0
-        if(name_is_empty):
-            raise NameRequired('O campo nome é obrigatório')
-        else:
-            return True
-
-    def _description_field_validation(self, description):
+        email_is_empty = len(email) == 0
         description_is_empty = len(description) == 0
-        description_is_full = len(description) > 400
-        if(description_is_empty):
-            raise DescriptionRequired('O campo descrição é obrigatório')
-        if (description_is_full):
-            raise DescriptionFull('O campo descrição ultrapassa 400 caracteres')
-        else:
-            return True
+        if name_is_empty or email_is_empty or description_is_empty:
+            raise TypeError('Há campos vazios. Preencha todos os campos.')
+        return False
 
     def _email_field_validation(self, email):
         email_is_valid = validate_email(email)
-        if(not email_is_valid):
-            raise EmailValid('O email digitado não é válido')
-        else:
-            return True
+        if not email_is_valid:
+            raise Exception('O email digitado não é válido')
+        return True
 
-    def _registration_author(self, name, email, description, time_registration):
-        author = []
-        author.append(email)
-        author.append(description)
-        author.append(time_registration)
-        self._authors[name] = author
+    def _description_is_full(self, description):
+        if len(description) > 400:
+            raise Exception('A descrição possui mais do que 400 caracteres')
+        return False
 
-    def _clear_display(self):
-        os.system('clear')
+    @property
+    def name(self):
+        return self._name
 
-    def print_table_all_authors(self):
-        table_authors = PrettyTable()
-        table_authors.field_names = ["Name", "E-mail", "Description", "Time Registration"]
+    @property
+    def email(self):
+        return self._email
 
-        for name, values in self._authors.items():
-            name = name
-            email = values[0]
-            description = values[1]
-            time_registration = values[2]
-            table_authors.add_row([name, email, description, time_registration])
+    @property
+    def description(self):
+        return self._description
 
-        self._clear_display()
-        print('\n--- Authors registrated ---\n\n')
-        print(table_authors)
-        print()
+    @property
+    def time_registration(self):
+        return self._time_registration
