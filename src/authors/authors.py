@@ -8,7 +8,7 @@ class Author:
         self.__set_name(name)
         self.__set_email(email)
         self.__set_description(description)
-        self.__time_registration()
+        self.__time_recorded = datetime.now()
 
     def __set_name(self, name):
         name_is_empty = len(name) == 0
@@ -30,9 +30,6 @@ class Author:
         if description_is_full:
             raise Exception('Descrição não pode conter mais que 400 caracteres')
         self.__description = description
-
-    def __time_registration(self):
-        self.__time_recorded = datetime.now()
 
     @property
     def name(self):
