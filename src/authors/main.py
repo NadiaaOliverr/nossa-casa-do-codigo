@@ -1,5 +1,4 @@
 from src.authors.authors import Author
-from prettytable import PrettyTable
 
 if __name__ == '__main__':
     try:
@@ -10,14 +9,5 @@ if __name__ == '__main__':
     except:
         raise TypeError('Preencha todos os campos')
 
-    table_authors = PrettyTable()
-    table_authors.field_names = ["Name", "E-mail", "Description", "Time Registration"]
-
-    for i in range(len(authors)):
-        name = authors[i].name
-        email = authors[i].email
-        description = authors[i].description
-        time_registration = authors[i].time_registration
-        table_authors.add_row([name, email, description, time_registration])
-
-    print(table_authors)
+    for author in authors:
+        print(f'Name: {author.name}\nEmail: {author.email}\nDescription: {author.description}\nRegistered at: {author.time_registration}\n')

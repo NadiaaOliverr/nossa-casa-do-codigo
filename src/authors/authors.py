@@ -5,49 +5,47 @@ from datetime import datetime
 class Author:
 
     def __init__(self, name, email, description):
-        if not self._name_is_empty(name):
-            self._name = name
-        if self._email_is_valid(email):
-            self._email = email
-        if not self._description_is_empty(description) and not self._description_is_full(description):
-            self._description = description
-        self._time_registration = datetime.now().strftime("%d/%m/%Y às %H:%M:%S.%f - BRT")
+        self.__set_name(name)
+        self.__set_email(email)
+        self.__set_description(description)
+        self.__time_registration()
 
-    def _name_is_empty(self, name):
+    def __set_name(self, name):
         name_is_empty = len(name) == 0
         if name_is_empty:
-            raise Exception('A descrição possui mais do que 400 caracteres')
-        return False
+            raise Exception('Nome não pode ser vazio')
+        self.__name = name
 
-    def _email_is_valid(self, email):
+    def __set_email(self, email):
         email_is_valid = validate_email(email)
         if not email_is_valid:
             raise Exception('O email digitado não é válido')
-        return True
+        self.__email = email
 
-    def _description_is_empty(self, description):
+    def __set_description(self, description):
         description_is_empty = len(description) == 0
+        description_is_full = len(description) > 400
         if description_is_empty:
-            raise Exception('A descrição possui mais do que 400 caracteres')
-        return False
+            raise Exception('Descrição não pode ser vazia')
+        if description_is_full:
+            raise Exception('Descrição não pode conter mais que 400 caracteres')
+        self.__description = description
 
-    def _description_is_full(self, description):
-        if len(description) > 400:
-            raise Exception('A descrição possui mais do que 400 caracteres')
-        return False
+    def __time_registration(self):
+        self.__time_recorded = datetime.now()
 
     @property
     def name(self):
-        return self._name
+        return self.__name
 
     @property
     def email(self):
-        return self._email
+        return self.__email
 
     @property
     def description(self):
-        return self._description
+        return self.__description
 
     @property
     def time_registration(self):
-        return self._time_registration
+        return self.__time_recorded
