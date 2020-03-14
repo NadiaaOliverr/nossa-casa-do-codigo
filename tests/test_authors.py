@@ -18,7 +18,7 @@ def test_not_should_allow_add_fields_in_blank(author):
                   '– uma empresa de treinamento – e cofundador do Garoa Hacker Clube, ' \
                   'o primeiro hackerspace do Brasil.'
 
-    with pytest.raises(TypeError):
+    with pytest.raises(Exception):
         author(name, email, description)
 
 
@@ -39,6 +39,8 @@ def test_not_should_allow_add_an_description_bigger_what_400_characters(author):
     description = 'Luciano Ramalho é programador Python desde 1998, Fellow da Python Software Foundation; é sócio do Python.pro.br ' \
                   '– uma empresa de treinamento – e cofundador do Garoa Hacker Clube, ' \
                   'o primeiro hackerspace do Brasil. Luciano Ramalho é programador Python desde 1998, Fellow da Python Software ' \
+                  'Foundation; é sócio do Python.pro.br – uma empresa de treinamento – e cofundador do Garoa Hacker Clube, ' \
+                  'o primeiro hackerspace do Brasil.o primeiro hackerspace do Brasil. Luciano Ramalho é programador Python desde 1998, Fellow da Python Software ' \
                   'Foundation; é sócio do Python.pro.br – uma empresa de treinamento – e cofundador do Garoa Hacker Clube, ' \
                   'o primeiro hackerspace do Brasil.'
 
