@@ -11,7 +11,7 @@ class Author:
         self.__time_recorded = datetime.now()
 
     def __str__(self):
-        return f'Name: {self.__name}\nEmail: {self.__email}\nDescription: {self.__description}\nRegistered at: {self.__time_recorded}\n'
+        return f'Name: {self.name}\nEmail: {self.email}\nDescription: {self.description}\nRegistered at: {self.time_registration}\n'
 
     def __set_name(self, name):
         name_is_empty = len(name) == 0
