@@ -10,6 +10,9 @@ class Author:
         self.__set_description(description)
         self.__time_recorded = datetime.now()
 
+    def __str__(self):
+        return f'Name: {self.__name}\nEmail: {self.__email}\nDescription: {self.__description}\nRegistered at: {self.__time_recorded}\n'
+
     def __set_name(self, name):
         name_is_empty = len(name) == 0
         if name_is_empty:
