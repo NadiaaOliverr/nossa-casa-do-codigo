@@ -55,3 +55,18 @@ class Author:
     @property
     def time_registration(self):
         return self.__time_recorded
+
+
+class AuthorDatabase:
+
+    def __init__(self):
+        self.__list_authors = []
+
+    def add_author(self, author):
+        if author in self.__list_authors:
+            raise Exception('Já existe um e-mail como este')
+        self.__list_authors.append(author)
+
+    @property
+    def list_authors(self):
+        return self.__list_authors
