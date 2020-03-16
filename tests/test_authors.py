@@ -1,4 +1,4 @@
-from src.authors.authors import Author
+from src.model.authors import Author
 
 import pytest
 
