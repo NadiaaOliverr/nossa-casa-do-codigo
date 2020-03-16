@@ -8,7 +8,7 @@
 #### Preparando o ambiente
 
 - Clone este repositório
-- Navegue até a branch `setup`: `git checkout setup`
+- Navegue até a branch `single_email`: `git checkout single_email`
 - Crie o ambiente virtual
   `python -m venv .venv`
 - Ative o ambiente virtual
@@ -33,9 +33,12 @@ Para testar este setup, entre na **pasta src** e execute o arquivo `main.py` com
 - Caso esteja utilizando o terminal, terá que fazer o seguinte:
 
   - **Ative o ambiente virtual**: `source .venv/bin/activate`
-  - Para compilar a main dos autores, na pasta raiz do projeto digite: `python3 -m src.authors.main`
+  - Para compilar a main dos autores, na pasta raiz do projeto digite: `python3 -m src.model.main`
 
-  - **Resultado Esperado**
-    ![resultado_esperado](https://user-images.githubusercontent.com/41811634/76156242-5abfab80-60d6-11ea-80de-d15693c7a779.png)
+
+    ![resultadoesperado](https://user-images.githubusercontent.com/41811634/76782947-c9180400-678f-11ea-8566-f1cd2c1e6c0c.png)
+
+  <!-- - **Resultado Esperado**
+    ![resultado_esperado](https://user-images.githubusercontent.com/41811634/76156242-5abfab80-60d6-11ea-80de-d15693c7a779.png) -->
 
   - Para compilar os testes, também na pasta raiz, digite: `python3 -m pytest`
