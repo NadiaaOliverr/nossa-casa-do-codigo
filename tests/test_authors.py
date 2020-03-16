@@ -46,4 +46,3 @@ def test_not_should_allow_add_an_description_bigger_what_400_characters(author):
 
     with pytest.raises(Exception):
         author(name, email, description)
-
