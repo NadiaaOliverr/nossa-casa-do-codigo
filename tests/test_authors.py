@@ -1,4 +1,5 @@
-from model.authors import Author, AuthorDatabase
+from model.author import Author
+from dao.author_database import AuthorDatabase
 
 import pytest
 
@@ -63,5 +64,5 @@ def test_not_should_allow_add_author_with_the_same_email(author):
     authors = AuthorDatabase()
 
     with pytest.raises(Exception):
-        authors.add_author(author_1)
-        authors.add_author(author_2)
+        authors.add(author_1)
+        authors.add(author_2)
