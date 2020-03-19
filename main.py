@@ -1,5 +1,5 @@
 from model.author import Author
-from dao.author_database import AuthorDatabase
+from dao.author_dao import AuthorDatabase
 
 if __name__ == '__main__':
     authors = AuthorDatabase()

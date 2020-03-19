@@ -10,4 +10,4 @@ class AuthorDatabase:
 
     @property
     def list(self):
-        return self.__list
+        return self.__list.copy()
