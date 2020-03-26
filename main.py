@@ -1,7 +1,11 @@
 from model.author import Author
+from model.category import Category
 from dao.author_dao import AuthorDatabase
+from dao.category_dao import CategoryDatabase
 
 if __name__ == '__main__':
+
+    #Livros
     authors = AuthorDatabase()
 
     author_1 = Author('Eistein', 'eistein@gmail.com', 'Autor do livro Como Vejo o Mundo')
@@ -15,3 +19,20 @@ if __name__ == '__main__':
 
     for author in authors.list:
         print(author)
+
+    #Categorias
+    categories = CategoryDatabase()
+
+    category_1 = Category('Romance')
+    categories.add(category_1)
+
+    category_2 = Category('Ficção Científica')
+    categories.add(category_2)
+
+    category_3 = Category('Aventura')
+    categories.add(category_3)
+
+    for category in categories.list:
+        print(category)
+
+
