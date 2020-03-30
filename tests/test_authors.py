@@ -1,4 +1,5 @@
-from src.model.authors import Author
+from model.author import Author
+from dao.author_dao import AuthorDatabase
 
 import pytest
 
@@ -46,3 +47,22 @@ def test_not_should_allow_add_an_description_bigger_what_400_characters(author):
 
     with pytest.raises(Exception):
         author(name, email, description)
+
+
+def test_not_should_allow_add_author_with_the_same_email(author):
+    name_1 = 'Luciano'
+    email_1 = 'lucianor@hotmail.com'
+    description_1 = 'Luciano Ramalho é programador Python desde 1998'
+
+    name_2 = 'Luciano Ramalho'
+    email_2 = 'lucianor@hotmail.com'
+    description_2 = 'Luciano Ramalho é programador Python desde 1998, Fellow da Python Software Foundation; é sócio do Python.pro.br '
+
+    author_1 = author(name_1, email_1, description_1)
+    author_2 = author(name_2, email_2, description_2)
+
+    authors = AuthorDatabase()
+
+    with pytest.raises(Exception):
+        authors.add(author_1)
+        authors.add(author_2)
