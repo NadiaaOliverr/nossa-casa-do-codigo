@@ -1,5 +1,5 @@
-from model.author import Author
-from dao.author_dao import AuthorDatabase
+from model import Author
+from dao import AuthorDatabase
 
 import pytest
 
@@ -34,7 +34,7 @@ def test_not_should_allow_add_an_email_invalid(author):
         author(name, email, description)
 
 
-def test_not_should_allow_add_an_description_bigger_what_400_characters(author):
+def test_not_should_allow_add_an_description_greater_than_400_characters(author):
     name = 'Luciano Ramalho'
     email = 'lucianor@hotmail.com'
     description = 'Luciano Ramalho é programador Python desde 1998, Fellow da Python Software Foundation; é sócio do Python.pro.br ' \

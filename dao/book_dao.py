@@ -1,4 +1,4 @@
-from model.book import Book
+from model import Book
 
 from typing import List
 

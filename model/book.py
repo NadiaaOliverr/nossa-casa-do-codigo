@@ -1,17 +1,15 @@
-from model.category import Category
-from dao.category_dao import CategoryDatabase
-
-from typing import Union, Tuple
 from datetime import datetime
+from typing import Tuple
+
+from model import Category
 
 
 class Book:
-    __categories = CategoryDatabase()
 
     def __init__(
             self, title: str, resume: str, summary: str,
             price: float, number_pages: int, isbn: str,
-            publication_date: Tuple[int, int, int], category: str
+            publication_date: Tuple[int, int, int], category: Category
     ) -> None:
         self.__set_title(title)
         self.__set_resume(resume)
@@ -28,10 +26,10 @@ class Book:
             raise Exception('Título não pode ser vazio')
         self.__title = title
 
-    def __eq__(self, other: Union[str, int]) -> bool:
-        return self.title == other.title and self.isbn == other.isbn
+    def __eq__(self, other: 'Book') -> bool:
+        return self.title == other.title or self.isbn == other.isbn
 
-    def __ne__(self, other):
+    def __ne__(self, other: 'Book'):
         return not self.__eq__(other)
 
     def __str__(self) -> str:
@@ -77,7 +75,9 @@ class Book:
             raise Exception('ISBN não pode ser vazio')
         self.__isbn = isbn
 
-    def __set_publication_date(self, publication_date: Tuple[int, int, int]) -> None:
+    def __set_publication_date(
+            self, publication_date: Tuple[int, int, int]
+    ) -> None:
         year = publication_date[0]
         month = publication_date[1]
         day = publication_date[2]
@@ -85,12 +85,13 @@ class Book:
         publication_date = publication_date_formated
         current_date = datetime.now()
         if current_date > publication_date_formated:
-            raise Exception('A data de publicação tem que ser maior que a data atual')
+            raise Exception(
+                'A data de publicação tem que ser maior que a data atual'
+            )
         self.__publication_date = publication_date
 
-    def __set_category(self, category: str) -> None:
-        self.__category = Category(category)
-        self.__categories.add(self.__category)
+    def __set_category(self, category: Category) -> None:
+        self.__category = category
 
     @property
     def title(self) -> str:
@@ -121,5 +122,5 @@ class Book:
         return self.__publication_date.strftime("%d/%m/%Y")
 
     @property
-    def categoria(self) -> str:
-        return self.__category.name
+    def categoria(self) -> Category:
+        return self.__category

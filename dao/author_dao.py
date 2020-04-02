@@ -1,5 +1,5 @@
 from typing import List
-from model.author import Author
+from model import Author
 
 
 class AuthorDatabase:
