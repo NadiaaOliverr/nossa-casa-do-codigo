@@ -1,5 +1,5 @@
 from typing import List
-from model.category import Category
+from model import Category
 
 
 class CategoryDatabase:
