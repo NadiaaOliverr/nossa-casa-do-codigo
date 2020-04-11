@@ -1,5 +1,6 @@
 from datetime import datetime
 from typing import Tuple
+from prettytable import PrettyTable
 
 from model import Category
 
@@ -105,6 +106,22 @@ class Book:
 
     def __set_category(self, category: Category) -> None:
         self._category = category
+
+    def to_view(self):
+        data_table = PrettyTable()
+        data_table.field_names = [
+            "Título", "Resumo", "Sumário",
+            "Preço em R$", "Número de Páginas",
+            "ISBN", "Data de Publicação",
+            "Categoria"
+        ]
+
+        data_table.add_row([
+            self.title, self.resume, self.summary,
+            self.price, self.number_pages, self.isbn,
+            self.publication_date, self.categoria
+        ])
+        print(data_table)
 
     @property
     def title(self) -> str:
