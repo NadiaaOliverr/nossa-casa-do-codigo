@@ -23,7 +23,7 @@ if __name__ == '__main__':
                   '# Introdução ## 1.1 Era uma vez um projeto sem testes... '
                   '## 1.2 Por que devemos testar?'
                   '## 1.3 Por que não testamos?', 29.90, 194, '9788566250046',
-                  (2020, 4, 20), category_1)
+                  (2020, 6, 20), category_1)
 
     books.add(book_1)
     categories.add(category_1)
@@ -34,13 +34,13 @@ if __name__ == '__main__':
                   '# Introdução ## 1.1 Era uma vez um projeto sem testes... '
                   '## 1.2 Por que devemos testar?'
                   '## 1.3 Por que não testamos?', 29.90, 194, '9788566250048',
-                  (2020, 4, 20), category_1)
+                  (2020, 6, 20), category_1)
 
     books.add(book_2)
     categories.add(category_2)
 
-    books.find_by_title('Clean Code')
+    print(books.find_by_title('Clean Code'))
 
     # Imprimindo os livros
-    # for book in books.list:
+    # for book in books:
     #     print(book)

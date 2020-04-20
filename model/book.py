@@ -1,6 +1,5 @@
 from datetime import datetime
 from typing import Tuple
-from prettytable import PrettyTable
 
 from model import Category
 
@@ -35,16 +34,7 @@ class Book:
         object.__setattr__(self, key, value)
 
     def __str__(self) -> str:
-        return (
-            f'Título: {self.title}\n'
-            f'Resumo: {self.resume}\n'
-            f'Sumário: {self.summary}\n'
-            f'Preço: R$ {self.price}\n'
-            f'Número de Páginas: {self.number_pages}\n'
-            f'ISBN: {self.isbn}\n'
-            f'Data de Publicação: {self.publication_date}\n'
-            f'Categoria: {self.categoria}\n'
-        )
+        return self.__view()
 
     def __eq__(self, other: 'Book') -> bool:
         return self.title == other.title or self.isbn == other.isbn
@@ -107,21 +97,17 @@ class Book:
     def __set_category(self, category: Category) -> None:
         self._category = category
 
-    def to_view(self):
-        data_table = PrettyTable()
-        data_table.field_names = [
-            "Título", "Resumo", "Sumário",
-            "Preço em R$", "Número de Páginas",
-            "ISBN", "Data de Publicação",
-            "Categoria"
-        ]
-
-        data_table.add_row([
-            self.title, self.resume, self.summary,
-            self.price, self.number_pages, self.isbn,
-            self.publication_date, self.categoria
-        ])
-        print(data_table)
+    def __view(self) -> str:
+        return (
+            f'Título: {self.title}\n'
+            f'Resumo: {self.resume}\n'
+            f'Sumário: {self.summary}\n'
+            f'Preço: R$ {self.price}\n'
+            f'Número de Páginas: {self.number_pages}\n'
+            f'ISBN: {self.isbn}\n'
+            f'Data de Publicação: {self.publication_date}\n'
+            f'Categoria: {self.categoria}\n'
+        )
 
     @property
     def title(self) -> str:
