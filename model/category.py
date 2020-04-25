@@ -1,7 +1,18 @@
 class Category:
+    __attributes = ('_name')
 
     def __init__(self, name: str) -> None:
         self.__set_name(name)
+
+    '''
+        __setattr__ é para evitar a criação de atributos fora da classe.
+    '''
+
+    def __setattr__(self, key, value):
+        if key not in self.__attributes:
+            raise AttributeError(f'Não foi possível '
+                                 f'adicionar o atributo {key}')
+        object.__setattr__(self, key, value)
 
     def __str__(self) -> str:
         return f'Categoria: {self.name}'
@@ -16,8 +27,8 @@ class Category:
         name_is_empty = len(name) == 0
         if name_is_empty:
             raise Exception('Nome não pode ser vazio')
-        self.__name = name
+        self._name = name
 
     @property
     def name(self) -> str:
-        return self.__name
+        return self._name
