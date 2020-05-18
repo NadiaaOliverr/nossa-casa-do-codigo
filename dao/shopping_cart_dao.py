@@ -2,7 +2,6 @@ from dao import BookDatabase
 
 
 class ShoppingCart:
-
     def __init__(self, book_database: BookDatabase) -> None:
         self.__books_on_cart = {}
         self.__book_database = book_database
@@ -18,9 +17,13 @@ class ShoppingCart:
 
     def list_items_cart(self) -> None:
         total_prices = 0.0
+        print('Seu carrinho'.upper())
         for item, quantity in self.__books_on_cart.items():
             total_prices += item.price * quantity
-            print(f'Título: {item.title}')
-            print(f'Preço: R${item.price}\n')
+            total_item = item.price * quantity
+            print(
+                f'Item: {item.title} - Preço: R${item.price} - '
+                f'Quantidade: {quantity} - Total: {total_item:.2f}'
+            )
 
         print('Total do Carrinho: R$ {:.2f}'.format(total_prices))
