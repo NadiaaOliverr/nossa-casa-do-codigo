@@ -17,7 +17,7 @@ class BookDatabase:
         for book in self.__list:
             if title == book.title:
                 return book
-        raise Exception('Título procurado não encontrado')
+        raise Exception('Título não encontrado')
 
     @property
     def list(self) -> List[Book]:

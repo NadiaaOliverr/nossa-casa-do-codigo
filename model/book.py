@@ -33,6 +33,9 @@ class Book:
                                  f'adicionar o atributo {key}')
         object.__setattr__(self, key, value)
 
+    def __hash__(self):
+        return hash(self.title)
+
     def __str__(self) -> str:
         return self.__view()
 
@@ -106,7 +109,7 @@ class Book:
             f'Número de Páginas: {self.number_pages}\n'
             f'ISBN: {self.isbn}\n'
             f'Data de Publicação: {self.publication_date}\n'
-            f'Categoria: {self.categoria}\n'
+            f'Categoria: {self.category}\n'
         )
 
     @property
@@ -138,5 +141,5 @@ class Book:
         return self._publication_date.strftime("%d/%m/%Y")
 
     @property
-    def categoria(self) -> Category:
+    def category(self) -> Category:
         return self._category

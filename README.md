@@ -34,7 +34,7 @@ Na pasta raiz execute o arquivo `main.py` com o comando:
   <!-- - Para compilar a main dos autores, na pasta raiz do projeto digite: `python3 -m src.model.main`
 
 
-    ![resultadoesperado](https://user-images.githubusercontent.com/41811634/76782947-c9180400-678f-11ea-8566-f1cd2c1e6c0c.png) --> -->
+    ![resultadoesperado](https://user-images.githubusercontent.com/41811634/76782947-c9180400-678f-11ea-8566-f1cd2c1e6c0c.png) -->
 
   <!-- - **Resultado Esperado**
     ![resultado_esperado](https://user-images.githubusercontent.com/41811634/76156242-5abfab80-60d6-11ea-80de-d15693c7a779.png) -->

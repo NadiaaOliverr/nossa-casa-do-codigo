@@ -1,4 +1,4 @@
-from dao import CategoryDatabase, BookDatabase
+from dao import CategoryDatabase, BookDatabase, ShoppingCart
 from model import Book, Category
 
 if __name__ == '__main__':
@@ -33,14 +33,22 @@ if __name__ == '__main__':
                   'Porque é demorado? Porque é chato? ',
                   '# Introdução ## 1.1 Era uma vez um projeto sem testes... '
                   '## 1.2 Por que devemos testar?'
-                  '## 1.3 Por que não testamos?', 29.90, 194, '9788566250048',
+                  '## 1.3 Por que não testamos?', 59.90, 194, '9788566250048',
                   (2020, 6, 20), category_1)
 
     books.add(book_2)
     categories.add(category_2)
 
-    print(books.find_by_title('Clean Code'))
-
-    # Imprimindo os livros
-    # for book in books:
-    #     print(book)
+    cart = ShoppingCart(books)
+    cart.add_cart('Clean Code')
+    cart.add_cart('Clean Code')
+    cart.add_cart('Clean Code')
+    cart.add_cart('Clean Code')
+    cart.add_cart('Test-Driven Development')
+    cart.add_cart('Test-Driven Development')
+    cart.add_cart('Test-Driven Development')
+    cart.add_cart('Test-Driven Development')
+    cart.add_cart('Test-Driven Development')
+    cart.add_cart('Test-Driven Development')
+    cart.add_cart('Test-Driven Development')
+    cart.list_items_cart()
