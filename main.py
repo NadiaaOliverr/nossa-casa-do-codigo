@@ -1,5 +1,7 @@
-from dao import CategoryDatabase, BookDatabase, ShoppingCart, CouponDatabase
-from model import Book, Category, Client, Address
+from dao import CategoryDatabase, BookDatabase, ShoppingCartDatabase, CouponDatabase
+from model import Book, Category, Client, Address, Coupon
+
+from datetime import datetime
 
 if __name__ == '__main__':
     # Banco de Dados
@@ -31,11 +33,19 @@ if __name__ == '__main__':
     books.add(book_2)
     categories.add(category_2)
 
-    coupon_1 = coupons.add_coupon('ALURA10', (2020, 10, 10), 10)
-    coupon_2 = coupons.add_coupon('CDC40', (2020, 6, 10), 40)
+    # Cupons
+
+    date_expiration_coupon_1 = datetime(2020, 10, 10)
+    date_expiration_coupon_2 = datetime(2020, 6, 10)
+
+    coupon_1 = Coupon('ALURA10', date_expiration_coupon_1 , 10)
+    coupon_2 = Coupon('CDC40', date_expiration_coupon_2, 40)
+    coupons.add(coupon_1)
+    coupons.add(coupon_2)
 
     # Carrinho de Compras
-    cart = ShoppingCart(books, coupons)
+
+    cart = ShoppingCartDatabase(books, coupons)
     client_1 = Client('Nádia', 'nadia@nadia.com.br',
                       '012.345.678-90', Address('São Gonçalo', 'MG', '38900456'))
 

@@ -2,7 +2,7 @@ from .book_dao import BookDatabase
 from .coupon_dao import CouponDatabase
 from model import Client
 
-class ShoppingCart:
+class ShoppingCartDatabase:
     
     def __init__(self, book_database: 'BookDatabase', 
                  coupon_database: 'CouponDatabase') -> None:
@@ -19,7 +19,7 @@ class ShoppingCart:
         else:
             self.__books_on_cart[book] = self.__quantity_initial
 
-    def __list_items_cart(self, discount=None) -> None:
+    def __list_items_cart(self, discount = None) -> None:
         self.__total_prices = 0.0
         print('Seu carrinho'.upper())
         for item, quantity in self.__books_on_cart.items():
@@ -37,10 +37,11 @@ class ShoppingCart:
             print(f'Desconto de R$ {value_discount} aplicado a sua compra')
             print(f'Total do Carrinho: R$ {self.__total_prices:.2f}')
 
-    def checkout(self, client: 'Client', coupon=None) -> None:
-        if coupon is not None:
-            percent_discount = self.__coupon_database.get_percent_if_coupon_is_valid(coupon)
-            self.__list_items_cart(percent_discount)
+
+    def checkout(self, client: 'Client', code_coupoun = None) -> None:
+        if code_coupoun is not None:
+            coupon = self.__coupon_database.find_by_code(code_coupoun)
+            self.__list_items_cart(coupon.percent_discount)
         else:
             self.__list_items_cart()
         self.__books_on_cart = {}
