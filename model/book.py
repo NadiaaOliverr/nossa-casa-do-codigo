@@ -29,11 +29,10 @@ class Book:
 
     def __setattr__(self, key, value):
         if key not in self.__attributes:
-            raise AttributeError(f'Não foi possível '
-                                 f'adicionar o atributo {key}')
+            raise AttributeError(f'Não foi possível adicionar o atributo {key}')
         object.__setattr__(self, key, value)
 
-    def __hash__(self):
+    def __hash__(self) -> int:
         return hash(self.title)
 
     def __str__(self) -> str:
