@@ -18,7 +18,7 @@ if __name__ == '__main__':
                   'Por que não testamos software?Porque é caro? ',
                   '# Introdução ## 1.1 Era uma vez um projeto sem testes... '
                   '## 1.3 Por que não testamos?', 29.90, 194, '9788566250046',
-                  (2020, 6, 20), category_1)
+                  datetime(2020, 6, 20), category_1)
 
     books.add(book_1)
     categories.add(category_1)
@@ -28,7 +28,7 @@ if __name__ == '__main__':
                   'Porque é demorado? Porque é chato? ',
                   '## 1.2 Por que devemos testar?'
                   '## 1.3 Por que não testamos?', 59.90, 194, '9788566250048',
-                  (2020, 6, 20), category_1)
+                  datetime(2020, 6, 20), category_1)
 
     books.add(book_2)
     categories.add(category_2)

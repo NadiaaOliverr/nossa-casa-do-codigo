@@ -82,15 +82,10 @@ class Book:
         self._isbn = isbn
 
     def __set_publication_date(
-            self, publication_date: Tuple[int, int, int]
+            self, publication_date: datetime
     ) -> None:
-        year = publication_date[0]
-        month = publication_date[1]
-        day = publication_date[2]
-        publication_date_formated = datetime(year, month, day)
-        publication_date = publication_date_formated
         current_date = datetime.now()
-        if current_date > publication_date_formated:
+        if current_date > publication_date:
             raise Exception(
                 'A data de publicação tem que ser maior que a data atual'
             )
