@@ -53,6 +53,3 @@ if __name__ == '__main__':
     cart.add_cart('Test-Driven Development')
     cart.add_cart('Test-Driven Development')
     cart.checkout(client_1, 'ALURA10')
-
-    idade = 20
-    print(f'Wilber tem {idade} anos')

@@ -16,7 +16,7 @@ class CouponDatabase:
 
     def find_by_code(self, code: str) -> Coupon:
         for coupon in self.__coupons:
-            if code == coupon.code and coupon.is_valid:
+            if code == coupon.code and coupon.is_valid_date:
                 return coupon
         raise Exception('Cupom Inválido')
 

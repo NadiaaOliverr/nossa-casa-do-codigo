@@ -62,5 +62,8 @@ class Coupon:
         return self._percent_discount
 
     @property
-    def is_valid(self):
-        return self.expiration_date > datetime.now() 
+    def is_valid_date(self):
+        def expired_coupon():
+            raise Exception('Cupom Expirado')
+
+        return cupom_expirado() if datetime.now() > self.expiration_date else True
