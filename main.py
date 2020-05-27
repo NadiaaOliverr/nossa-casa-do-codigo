@@ -33,7 +33,7 @@ if __name__ == '__main__':
     books.add(book_2)
     categories.add(category_2)
 
-    # Cupons
+    # Cadastrando Cupons
 
     date_expiration_coupon_1 = datetime(2020, 10, 10)
     date_expiration_coupon_2 = datetime(2020, 6, 10)
@@ -53,3 +53,6 @@ if __name__ == '__main__':
     cart.add_cart('Test-Driven Development')
     cart.add_cart('Test-Driven Development')
     cart.checkout(client_1, 'ALURA10')
+
+    idade = 20
+    print(f'Wilber tem {idade} anos')

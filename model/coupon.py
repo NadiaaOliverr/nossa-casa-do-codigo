@@ -60,3 +60,7 @@ class Coupon:
     @property
     def percent_discount(self):
         return self._percent_discount
+
+    @property
+    def is_valid(self):
+        return self.expiration_date > datetime.now() 
