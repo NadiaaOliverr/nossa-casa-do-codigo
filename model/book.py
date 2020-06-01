@@ -29,11 +29,10 @@ class Book:
 
     def __setattr__(self, key, value):
         if key not in self.__attributes:
-            raise AttributeError(f'Não foi possível '
-                                 f'adicionar o atributo {key}')
+            raise AttributeError(f'Não foi possível adicionar o atributo {key}')
         object.__setattr__(self, key, value)
 
-    def __hash__(self):
+    def __hash__(self) -> int:
         return hash(self.title)
 
     def __str__(self) -> str:
@@ -83,15 +82,10 @@ class Book:
         self._isbn = isbn
 
     def __set_publication_date(
-            self, publication_date: Tuple[int, int, int]
+            self, publication_date: datetime
     ) -> None:
-        year = publication_date[0]
-        month = publication_date[1]
-        day = publication_date[2]
-        publication_date_formated = datetime(year, month, day)
-        publication_date = publication_date_formated
         current_date = datetime.now()
-        if current_date > publication_date_formated:
+        if current_date > publication_date:
             raise Exception(
                 'A data de publicação tem que ser maior que a data atual'
             )

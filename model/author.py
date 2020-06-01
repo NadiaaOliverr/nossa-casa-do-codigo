@@ -24,8 +24,7 @@ class Author:
 
     def __setattr__(self, key, value):
         if key not in self.__attributes:
-            raise AttributeError(f'Não foi possível'
-                                 f'adicionar o atributo {key}')
+            raise AttributeError(f'Não foi possível adicionar o atributo {key}')
         object.__setattr__(self, key, value)
 
     def __str__(self) -> str:

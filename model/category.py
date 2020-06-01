@@ -4,10 +4,6 @@ class Category:
     def __init__(self, name: str) -> None:
         self.__set_name(name)
 
-    '''
-        __setattr__ é para evitar a criação de atributos fora da classe.
-    '''
-
     def __setattr__(self, key, value):
         if key not in self.__attributes:
             raise AttributeError(f'Não foi possível '
